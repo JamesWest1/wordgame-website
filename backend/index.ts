@@ -45,8 +45,8 @@ app.post("/creategame", (req:Request, res:Response) => {
     res.send({sessionId: newSession.sessionId, uId: playerId}).status(200);
 })
 
-app.put("/joingame/:sessionId", (req:Request, res:Response) => {
-    let {sessionId} = req.params;
+app.put("/joinroom", (req:Request, res:Response) => {
+    let sessionId:String = req.body.sessionId;
     let password:String = req.body.password;
     let playerId:String = uuid4();
     let name:String = req.body.name;
@@ -59,7 +59,7 @@ app.put("/joingame/:sessionId", (req:Request, res:Response) => {
 app.put("/guess/:sessionId", (req: Request, res:Response) => {
     let {sessionId} = req.params;
     let playerId:String = req.body.playerId;
-    let guess:String = 
+    let guess:String = req.body.guess;
 })
 
 
